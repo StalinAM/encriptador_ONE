@@ -22,15 +22,15 @@
     </header>
     <main class="main_container">
         <section class="left">
-            <textarea placeholder="Ingrese el texto aquí"></textarea>
+            <textarea id="input_text" placeholder="Ingrese el texto aquí"></textarea>
             <div class="buttons_warning_container">
                 <div class="warning_container">
                     <img src="./assets/icon_advertencia.svg" alt="">
                     <p> Solo letras minúsculas y sin acentos</p>
                 </div>
                 <div class="buttons_container">
-                    <button class="left_button">Encriptar</button>
-                    <button class="right_button">Desencriptar</button>
+                    <button id="encrypt" class="left_button">Encriptar</button>
+                    <button id="decrypt" class="right_button">Desencriptar</button>
                 </div>
             </div>
         </section>
@@ -41,10 +41,11 @@
                 <p>Ingresa el texto que desees encriptar o desencriptar</p>
             </div>
             <div class="message_found_container active">
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Orci montes, sit et diam risus scelerisque
+                <p id="message">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Orci montes, sit et diam risus
+                    scelerisque
                     vitae est. Tortor maecenas nunc ut laoreet. Eget diam mauris quam quisque ut eget fringilla sit
                     elit. Libero, sodales duis fames id diam feugiat aliquet non egestas.</p>
-                <button class="right_button">Copiar</button>
+                <button id="copy" class="right_button">Copiar</button>
             </div>
         </section>
     </main>
