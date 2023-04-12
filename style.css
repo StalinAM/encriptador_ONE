@@ -54,6 +54,16 @@ body {
   background-color: var(--light_blue_100);
   padding: 1.5rem;
 }
+body::-webkit-scrollbar {
+  width: 6px; /* width of the entire scrollbar */
+}
+body::-webkit-scrollbar-track {
+  background: none; /* color of the tracking area */
+}
+body::-webkit-scrollbar-thumb {
+  background-color: var(--dark_blue_300); /* color of the scroll thumb */
+  border-radius: 20px; /* roundness of the scroll thumb */
+}
 .main_container {
   display: flex;
   flex-direction: column;
