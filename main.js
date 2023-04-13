@@ -1,15 +1,22 @@
-const input_text = document.getElementById("input_text");
-const btn_encrypt = document.getElementById("encrypt");
-const btn_decrypt = document.getElementById("decrypt");
-const btn_copy = document.getElementById("copy");
+const inputText = document.getElementById("input_text");
+const btnEncrypt = document.getElementById("encrypt");
+const btnDecrypt = document.getElementById("decrypt");
+const btnCopy = document.getElementById("copy");
+const btnCloseModal = document.getElementById("close_modal");
 const message = document.getElementById("message");
+const modal = document.getElementById("main_modal");
 
-const message_not_found_container = document.querySelector(
+const messageNotFoundContainer = document.querySelector(
   ".message_not_found_container"
 );
-const message_found_container = document.querySelector(
+const messageFoundContainer = document.querySelector(
   ".message_found_container"
 );
+
+const validateString = (message) => {
+  let regex = /^[a-z\s]+$/;
+  return regex.test(message);
+};
 
 const KEYS_ENCRYPT = {
   e: "enter",
@@ -26,13 +33,36 @@ const encryptMessage = (message) => {
     .join("");
 };
 
-btn_encrypt.addEventListener("click", () => {
-  message_not_found_container.classList.add("active");
-  message_found_container.classList.remove("active");
-  message.innerHTML = encryptMessage(input_text.value);
+const decryptMessage = (message) => {
+  return message
+    .replaceAll("enter", "e")
+    .replaceAll("imes", "i")
+    .replaceAll("ai", "a")
+    .replaceAll("ober", "o")
+    .replaceAll("ufat", "u");
+};
+
+btnEncrypt.addEventListener("click", () => {
+  if (!validateString(inputText.value)) {
+    modal.showModal();
+    return;
+  }
+  messageNotFoundContainer.classList.add("active");
+  messageFoundContainer.classList.remove("active");
+  message.innerHTML = encryptMessage(inputText.value);
 });
 
-btn_copy.addEventListener("click", () => {
+btnDecrypt.addEventListener("click", () => {
+  if (!validateString(inputText.value)) {
+    modal.showModal();
+    return;
+  }
+  messageNotFoundContainer.classList.add("active");
+  messageFoundContainer.classList.remove("active");
+  message.innerHTML = decryptMessage(inputText.value);
+});
+
+btnCopy.addEventListener("click", () => {
   const range = document.createRange();
   range.selectNode(message);
   window.getSelection().addRange(range);
@@ -46,4 +76,8 @@ btn_copy.addEventListener("click", () => {
       alert("Error al copiar el texto en el portapapeles");
     }
   );
+});
+
+btnCloseModal.addEventListener("click", () => {
+  modal.close();
 });
