@@ -14,8 +14,8 @@ const messageFoundContainer = document.querySelector(
 );
 
 const validateString = (message) => {
-  let regex = /^[a-z\s]+$/;
-  return regex.test(message);
+  let regex = /[A-Z\_\u007F-\uFFFF]+/g;
+  return !regex.test(message);
 };
 
 const KEYS_ENCRYPT = {
@@ -25,7 +25,12 @@ const KEYS_ENCRYPT = {
   o: "ober",
   u: "ufat",
 };
+const KEYS_DECRYPT = {};
 
+Object.entries(KEYS_ENCRYPT).forEach(([key, value]) => {
+  KEYS_DECRYPT[value] = key;
+});
+console.log(KEYS_DECRYPT);
 const encryptMessage = (message) => {
   return message
     .split("")
@@ -34,12 +39,12 @@ const encryptMessage = (message) => {
 };
 
 const decryptMessage = (message) => {
-  return message
-    .replaceAll("enter", "e")
-    .replaceAll("imes", "i")
-    .replaceAll("ai", "a")
-    .replaceAll("ober", "o")
-    .replaceAll("ufat", "u");
+  console.log(message);
+  let decryptedMessage = message;
+  Object.keys(KEYS_DECRYPT).forEach((key) => {
+    decryptedMessage = decryptedMessage.replaceAll(key, KEYS_DECRYPT[key]);
+  });
+  return decryptedMessage;
 };
 
 btnEncrypt.addEventListener("click", () => {
