@@ -144,13 +144,19 @@ body::-webkit-scrollbar-thumb {
 }
 .left_button {
   background-color: var(--dark_blue_300);
-  border: none;
+  border: 1px solid var(--dark_blue_300);
   border-radius: 24px;
   color: white;
   font-size: var(--font_16);
   padding: 24px;
   width: 100%;
   cursor: pointer;
+}
+.left_button:hover,
+.right_button:hover {
+  background-color: var(--dark_blue_100);
+  border: 1px solid var(--dark_blue_100);
+  color: white;
 }
 .right_button {
   background-color: var(--light_blue_100);
@@ -162,6 +168,7 @@ body::-webkit-scrollbar-thumb {
   width: 100%;
   cursor: pointer;
 }
+
 .warning_container {
   display: flex;
   align-items: center;
