@@ -134,6 +134,7 @@ body::-webkit-scrollbar-thumb {
   font-size: var(--font_24);
   font-weight: 400;
   color: var(--gray_400);
+  overflow-wrap: break-word;
 }
 .buttons_container {
   display: flex;
