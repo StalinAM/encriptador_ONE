@@ -30,7 +30,7 @@ const KEYS_DECRYPT = {};
 Object.entries(KEYS_ENCRYPT).forEach(([key, value]) => {
   KEYS_DECRYPT[value] = key;
 });
-console.log(KEYS_DECRYPT);
+
 const encryptMessage = (message) => {
   return message
     .split("")
@@ -39,7 +39,6 @@ const encryptMessage = (message) => {
 };
 
 const decryptMessage = (message) => {
-  console.log(message);
   let decryptedMessage = message;
   Object.keys(KEYS_DECRYPT).forEach((key) => {
     decryptedMessage = decryptedMessage.replaceAll(key, KEYS_DECRYPT[key]);
