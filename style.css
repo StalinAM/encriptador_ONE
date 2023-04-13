@@ -128,6 +128,7 @@ body::-webkit-scrollbar-thumb {
   display: flex;
   flex-direction: column;
   gap: 32px;
+  width: 100%;
 }
 .message_found_container p {
   font-size: var(--font_24);
@@ -216,7 +217,7 @@ deepl-inline-translate {
     margin-top: 0;
   }
   .right {
-    max-width: 400px;
+    width: 400px;
     display: flex;
     align-items: center;
   }
