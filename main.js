@@ -47,6 +47,9 @@ const decryptMessage = (message) => {
 };
 
 btnEncrypt.addEventListener("click", () => {
+  if (!inputText.value) {
+    return;
+  }
   if (!validateString(inputText.value)) {
     modal.showModal();
     return;
@@ -57,6 +60,9 @@ btnEncrypt.addEventListener("click", () => {
 });
 
 btnDecrypt.addEventListener("click", () => {
+  if (!inputText.value) {
+    return;
+  }
   if (!validateString(inputText.value)) {
     modal.showModal();
     return;
